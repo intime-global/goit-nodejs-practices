@@ -1,20 +1,32 @@
 [
   {
-    "name": "Gorgeous Concrete Bike",
-    "price": "511.19",
-    "category": "Movies",
-    "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
-  },
-  {
-    "name": "Tasty Cotton Tuna",
-    "price": "790.59",
-    "category": "Home",
+    "name": "Incredible Steel Chips",
+    "price": "994.99",
+    "category": "Health",
     "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
   },
   {
-    "name": "Electronic Steel Salad",
-    "price": "41.35",
-    "category": "Toys",
+    "name": "Generic Plastic Fish",
+    "price": "515.05",
+    "category": "Home",
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"
+  },
+  {
+    "name": "Licensed Bronze Cheese",
+    "price": "733.15",
+    "category": "Home",
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"
+  },
+  {
+    "name": "Tasty Soft Hat",
+    "price": "654.49",
+    "category": "Garden",
     "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"
+  },
+  {
+    "name": "Sleek Bronze Cheese",
+    "price": "48.69",
+    "category": "Jewelry",
+    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"
   }
 ]
