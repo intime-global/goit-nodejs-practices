@@ -1,62 +1,20 @@
 [
   {
-    "name": "Luxurious Rubber Pants",
-    "price": "34.10",
-    "category": "Beauty",
-    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart"
-  },
-  {
-    "name": "Awesome Concrete Computer",
-    "price": "415.19",
-    "category": "Toys",
-    "description": "The Apollotech B340 is an affordable wireless mouse with reliable connectivity, 12 months battery life and modern design"
-  },
-  {
-    "name": "Elegant Cotton Sausages",
-    "price": "702.39",
-    "category": "Electronics",
-    "description": "New range of formal shirts are designed keeping you in mind. With fits and styling that will make you stand apart"
-  },
-  {
-    "name": "Handcrafted Fresh Bacon",
-    "price": "458.39",
-    "category": "Beauty",
-    "description": "Carbonite web goalkeeper gloves are ergonomically designed to give easy fit"
-  },
-  {
-    "name": "Small Plastic Pizza",
-    "price": "586.09",
-    "category": "Sports",
-    "description": "New ABC 13 9370, 13.3, 5th Gen CoreA5-8250U, 8GB RAM, 256GB SSD, power UHD Graphics, OS 10 Home, OS Office A & J 2016"
-  },
-  {
-    "name": "Oriental Bronze Chips",
-    "price": "978.99",
-    "category": "Health",
-    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients"
-  },
-  {
-    "name": "Bespoke Plastic Keyboard",
-    "price": "181.79",
-    "category": "Toys",
-    "description": "The automobile layout consists of a front-engine design, with transaxle-type transmissions mounted at the rear of the engine and four wheel drive"
-  },
-  {
-    "name": "Sleek Steel Fish",
-    "price": "751.89",
-    "category": "Computers",
-    "description": "The beautiful range of Apple Naturalé that has an exciting mix of natural ingredients. With the Goodness of 100% Natural Ingredients"
-  },
-  {
-    "name": "Practical Fresh Computer",
-    "price": "522.29",
-    "category": "Clothing",
-    "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
-  },
-  {
     "name": "Refined Frozen Shirt",
     "price": "68.35",
     "category": "Clothing",
     "description": "Andy shoes are designed to keeping in mind durability as well as trends, the most stylish range of shoes & sandals"
+  },
+  {
+    "name": "Sleek Wooden Shoes",
+    "price": "584.99",
+    "category": "Baby",
+    "description": "Boston's most advanced compression wear technology increases muscle oxygenation, stabilizes active muscles"
+  },
+  {
+    "name": "Electronic Steel Shoes",
+    "price": "372.09",
+    "category": "Clothing",
+    "description": "The slim & simple Maple Gaming Keyboard from Dev Byte comes with a sleek body and 7- Color RGB LED Back-lighting for smart functionality"
   }
 ]

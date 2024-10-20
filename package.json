@@ -5,7 +5,9 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "generate": "node src/scripts/generateProduct.js",
+    "add-one": "node src/scripts/addOneProduct.js"
   },
   "keywords": [],
   "author": "Serhii Reshetniak <reshet@lozovaya.org.ua>",
