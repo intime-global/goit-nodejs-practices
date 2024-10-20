@@ -1,0 +1,19 @@
+{
+  "name": "goit-nodejs-practices",
+  "version": "1.0.0",
+  "description": "GoIT 106/3",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Serhii Reshetniak <reshet@lozovaya.org.ua>",
+  "license": "ISC",
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@faker-js/faker": "^9.0.3",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0"
+  }
+}
