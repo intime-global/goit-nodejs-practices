@@ -14,3 +14,10 @@ export const addProduct = async (payload) => {
   const product = await ProductsCollection.create(payload);
   return product;
 };
+
+export const patchProduct = async (payload, _id) => {
+  const product = await ProductsCollection.findOneAndUpdate({ _id }, payload, {
+    new: true,
+  });
+  return product;
+};

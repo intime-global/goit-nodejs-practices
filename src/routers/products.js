@@ -3,6 +3,7 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   addProductController,
   getAllProductsController,
+  patchProductController,
   productIdProductsController,
 } from '../controllers/products.js';
 
@@ -13,5 +14,7 @@ router.get('/', ctrlWrapper(getAllProductsController));
 router.get('/:productId', ctrlWrapper(productIdProductsController));
 
 router.post('/', ctrlWrapper(addProductController));
+
+router.patch('/:productId', ctrlWrapper(patchProductController));
 
 export default router;
