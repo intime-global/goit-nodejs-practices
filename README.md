@@ -1,3 +1,11 @@
+# NodeJS practices
+
+GoIT 106/3
+
+03 Nov 2024
+
+Live site: [nodejs-practice-2024-11-03.onrender.com](https://nodejs-practice-2024-11-03.onrender.com)
+
 # TASK 1
 
 1. Створіть новий командний репозиторій на основі цього шаблонного репозиторію.
