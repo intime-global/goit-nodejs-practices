@@ -21,3 +21,8 @@ export const patchProduct = async (payload, _id) => {
   });
   return product;
 };
+
+export const deletProduct = async (_id) => {
+  const product = await ProductsCollection.findOneAndDelete({ _id });
+  return product;
+};
