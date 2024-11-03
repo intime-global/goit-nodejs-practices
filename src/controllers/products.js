@@ -3,7 +3,8 @@ import {
   addProduct,
   getAllProducts,
   getProductById,
-  patchProduct, deletProduct
+  updateProduct,
+  deletProduct,
 } from '../services/products.js';
 
 export const getAllProductsController = async (req, res) => {
@@ -41,18 +42,30 @@ export const addProductController = async (req, res) => {
 
 export const patchProductController = async (req, res) => {
   const { productId } = req.params;
-  const product = await patchProduct(req.body, productId);
+  const result = await updateProduct(req.body, productId);
 
-  if (!product) {
+  if (!result) {
     throw createHttpError(404, 'Product not found');
   }
 
   res.status(200).json({
     status: 200,
     message: 'Successfully patched a product!',
-    data: product,
+    data: result.product,
   });
 };
+
+export const putProductController = async (req, res) => {
+  const { productId } = req.params;
+  const result = await updateProduct(req.body, productId, { upsert: true });
+  const status = result.isNew ? 201 : 200;
+  res.status(status).json({
+    status,
+    message: 'Successfully upserted product',
+    data: result.product,
+  });
+};
+
 // deleteProductController
 export const deleteProductController = async (req, res) => {
   const { productId } = req.params;
