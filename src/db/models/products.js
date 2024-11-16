@@ -1,12 +1,14 @@
 import { Schema, model } from 'mongoose';
 
+import { arrOfCategory } from '../../constants/products.js';
+
 const ProductsSchema = new Schema(
   {
     name: { type: String, required: true },
     price: { type: Number, required: true },
     category: {
       type: String,
-      enum: ['books', 'electronics', 'clothing', 'other'],
+      enum: arrOfCategory,
       default: 'other',
       required: true,
     },
