@@ -1,4 +1,4 @@
-import { registerUser } from '../services/users.js';
+import { loginUser, registerUser } from '../services/users.js';
 
 export const registerUsersController = async (req, res, next) => {
   const user = await registerUser(req.body);
@@ -6,5 +6,35 @@ export const registerUsersController = async (req, res, next) => {
     status: 201,
     message: 'Successfully registered a user!',
     data: user,
+  });
+};
+
+const setCookies = (res, session) => {
+  res.cookie('sessionId', session._id, {
+    expires: session.refreshTokenValidUntil,
+    httpOnly: true,
+  });
+
+  res.cookie('refreshToken', session.refreshToken, {
+    expires: session.refreshTokenValidUntil,
+    httpOnly: true,
+  });
+};
+
+/**
+  |============================
+  | login user controller
+  |============================
+*/
+
+export const loginUserController = async (req, res) => {
+  const newSession = await loginUser(req.body);
+
+  setCookies(res, newSession);
+
+  res.status(200).json({
+    status: 200,
+    message: 'Successfully logged in an user!',
+    data: { accessToken: newSession.accessToken },
   });
 };
