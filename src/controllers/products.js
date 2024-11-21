@@ -11,7 +11,7 @@ import { parseFilterParams } from '../utils/parseFilterParams.js';
 export const getAllProductsController = async (req, res) => {
   const filter = parseFilterParams(req.query);
 
-  const products = await getAllProducts(filter);
+  const products = await getAllProducts(filter, req.user._id);
 
   res.status(200).json({
     status: 200,
@@ -22,7 +22,7 @@ export const getAllProductsController = async (req, res) => {
 
 export const productIdProductsController = async (req, res) => {
   const { productId } = req.params;
-  const product = await getProductById(productId);
+  const product = await getProductById(productId, req.user._id);
   if (!product) {
     throw createHttpError(404, 'Product not found');
   }
@@ -34,7 +34,7 @@ export const productIdProductsController = async (req, res) => {
 };
 
 export const addProductController = async (req, res) => {
-  const product = await addProduct(req.body);
+  const product = await addProduct(req.body, req.user._id);
 
   res.status(201).json({
     status: 201,
@@ -45,7 +45,7 @@ export const addProductController = async (req, res) => {
 
 export const patchProductController = async (req, res) => {
   const { productId } = req.params;
-  const result = await updateProduct(req.body, productId);
+  const result = await updateProduct(req.body, productId, req.user._id);
 
   if (!result) {
     throw createHttpError(404, 'Product not found');
@@ -60,7 +60,7 @@ export const patchProductController = async (req, res) => {
 
 export const putProductController = async (req, res) => {
   const { productId } = req.params;
-  const result = await updateProduct(req.body, productId, { upsert: true });
+  const result = await updateProduct(req.body, productId, req.user._id, { upsert: true });
   const status = result.isNew ? 201 : 200;
   res.status(status).json({
     status,
@@ -72,7 +72,7 @@ export const putProductController = async (req, res) => {
 // deleteProductController
 export const deleteProductController = async (req, res) => {
   const { productId } = req.params;
-  const product = await deletProduct(productId);
+  const product = await deletProduct(productId, req.user._id);
   if (!product) {
     throw createHttpError(404, 'Product not found');
   }
