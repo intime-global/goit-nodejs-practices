@@ -48,10 +48,9 @@ export const loginUser = async ({ email, password }) => {
 
   const newSession = setupSession();
 
-  return {
-    userId: user._id,
-    ...newSession,
-  };
+  const session = SessionCollection.create({ userId: user._id, ...newSession });
+
+  return session;
 };
 
 export const logoutUser = async (sessionId) => {
