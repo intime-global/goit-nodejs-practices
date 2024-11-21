@@ -15,9 +15,10 @@ import {
   updateProductsSchema,
 } from '../validation/products.js';
 import { validateId } from '../middlewares/validateId.js';
+import { authenticate } from '../middlewares/authenticate.js';
 
 const router = Router();
-
+router.use(authenticate);
 router.get('/', ctrlWrapper(getAllProductsController));
 
 router.get('/:productId', validateId, ctrlWrapper(productIdProductsController));
