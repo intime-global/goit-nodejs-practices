@@ -4,6 +4,7 @@ import bcrypt from 'bcrypt';
 import { SessionCollection } from '../db/models/session.js';
 import { randomBytes } from 'crypto';
 import { FIFTEEN_MINUTES, ONE_MONTH } from '../constants/user.js';
+import { throws } from 'assert';
 
 export const registerUser = async (payload) => {
   const { name, email, password } = payload;
@@ -48,7 +49,7 @@ export const loginUser = async ({ email, password }) => {
 
   const newSession = setupSession();
 
-  const session = SessionCollection.create({ userId: user._id, ...newSession });
+  const session = await SessionCollection.create({ userId: user._id, ...newSession });
 
   return session;
 };
@@ -57,4 +58,20 @@ export const logoutUser = async (sessionId) => {
   await SessionCollection.deleteOne({
     _id: sessionId,
   });
+};
+
+export const refreshSessionToken = async ({ sessionId, refreshToken }) => {
+  const session = await SessionCollection.findOne({ _id: sessionId, refreshToken });
+
+  if (!session) throw createHttpError(401, 'Session not found');
+
+  if (new Date() > new Date(session.refreshTokenValidUntil))
+    throw createHttpError(401, 'refreshtoken is expired');
+
+  await SessionCollection.findOneAndDelete({ _id: sessionId, refreshToken });
+  const newSession = setupSession();
+
+  return await SessionCollection.create({ userId: session.userId, ...newSession });
+
+
 };

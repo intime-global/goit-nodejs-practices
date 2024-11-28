@@ -1,4 +1,4 @@
-import { loginUser, registerUser, logoutUser } from '../services/users.js';
+import { loginUser, registerUser, logoutUser, refreshSessionToken } from '../services/users.js';
 
 export const registerUsersController = async (req, res, next) => {
   const user = await registerUser(req.body);
@@ -46,4 +46,21 @@ export const logoutUserController = async (req, res) => {
   res.clearCookie('sessionId');
   res.clearCookie('refreshToken');
   res.status(204).send();
+};
+
+export const refreshSessionTokenController = async (req, res) => {
+
+  const session = await refreshSessionToken({
+    sessionId: req.cookies.sessionId,
+    refreshToken: req.cookies.refreshToken
+  });
+
+  setCookies(res, session);
+
+  res.status(200).json({
+    status: 200,
+    message: 'Successfully refreshed a session!',
+    data: { accessToken: session.accessToken },
+  });
+
 };
