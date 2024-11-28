@@ -3,7 +3,8 @@ import { ctrlWrapper } from '../utils/ctrlWrapper.js';
 import {
   loginUserController,
   registerUsersController,
-  logoutUserController, refreshSessionTokenController
+  logoutUserController,
+  refreshSessionTokenController,
 } from '../controllers/users.js';
 import { validateBody } from '../middlewares/validateBody.js';
 import { loginUserSchema, registerUserSchema } from '../validation/users.js';

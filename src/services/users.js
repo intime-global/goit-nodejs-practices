@@ -49,7 +49,10 @@ export const loginUser = async ({ email, password }) => {
 
   const newSession = setupSession();
 
-  const session = await SessionCollection.create({ userId: user._id, ...newSession });
+  const session = await SessionCollection.create({
+    userId: user._id,
+    ...newSession,
+  });
 
   return session;
 };
@@ -61,7 +64,10 @@ export const logoutUser = async (sessionId) => {
 };
 
 export const refreshSessionToken = async ({ sessionId, refreshToken }) => {
-  const session = await SessionCollection.findOne({ _id: sessionId, refreshToken });
+  const session = await SessionCollection.findOne({
+    _id: sessionId,
+    refreshToken,
+  });
 
   if (!session) throw createHttpError(401, 'Session not found');
 
@@ -71,7 +77,8 @@ export const refreshSessionToken = async ({ sessionId, refreshToken }) => {
   await SessionCollection.findOneAndDelete({ _id: sessionId, refreshToken });
   const newSession = setupSession();
 
-  return await SessionCollection.create({ userId: session.userId, ...newSession });
-
-
+  return await SessionCollection.create({
+    userId: session.userId,
+    ...newSession,
+  });
 };
