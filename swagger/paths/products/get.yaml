@@ -1,62 +1,30 @@
 tags:
   - Products
-summary: Get list of students
-operationId: getStudents
+summary: Get list of product
+operationId: getProducts
 description: 'Get list of users with this endpoint'
 security:
   - bearerAuth: []
 parameters:
   - in: query
-    name: page
-    schema:
-      type: integer
-    example: 1
-  - in: query
-    name: perPage
-    schema:
-      type: integer
-      example: 10
-  - in: query
-    name: sortBy
+    name: category
     schema:
       type: string
-      example: 'age'
-    description: "All student's fields can be mentioned. Default value - _id"
+      enum: ['books', 'electronics', 'clothing','other']
+      example: 'books'
   - in: query
-    name: sortOrder
-    schema:
-      type: string
-      enum: ['asc', 'desc']
-      example: 'asc'
-  - in: query
-    name: minAvgMark
+    name: minPrice
     schema:
       type: number
       example: 4
   - in: query
-    name: maxAvgMark
+    name: maxPrice
     schema:
       type: number
-      example: 10
-  - in: query
-    name: minAge
-    schema:
-      type: number
-      example: 10
-  - in: query
-    name: maxAge
-    schema:
-      type: number
-      example: 16
-  - in: query
-    name: gender
-    schema:
-      type: string
-      enum: ['male', 'female', 'other']
-      example: male
+      example: 100
 responses:
   '200':
-    description: Successfully found students!
+    description: Successfully found products!
     content:
       application/json:
         schema:
@@ -71,35 +39,10 @@ responses:
               example: 200
             message:
               type: string
-              example: Successfully found students!
+              example: Successfully found products!
             data:
-              type: object
-              required:
-                - data
-                - page
-                - perPage
-                - totalItems
-                - totalPages
-                - hasNextPage
-                - hasPreviousPage
-              properties:
-                page:
-                  type: number
-                  example: 2
-                perPage:
-                  type: number
-                  example: 4
-                totalItems:
-                  type: number
-                  example: 4
-                totalPages:
-                  type: number
-                  example: 4
-                hasNextPage:
-                  type: boolean
-                  example: false
-                hasPreviousPage:
-                  type: boolean
-                  example: true
+              type: array
+              items:
+                $ref: '../../components/schemas/product.yaml'
   '401':
-    $ref: '../../components/responses/404.yaml'
+    $ref: '../../components/responses/401.yaml'
