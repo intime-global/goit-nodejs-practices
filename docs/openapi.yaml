@@ -1,12 +1,12 @@
 openapi: 3.1.0
 info:
   version: 1.0.0
-  title: <назва вашого додатку>
+  title: Products app
   license:
     name: Apache 2.0
     url: http://www.apache.org/licenses/LICENSE-2.0.html
   description: >
-    <опис вашого додатку>
+    Products app
 tags:
   - name: Products
     description: Operations with products
@@ -17,6 +17,9 @@ paths:
   /products:
     get:
       $ref: ../swagger/paths/products/get.yaml
+  /products/{productId}:
+    get:
+      $ref: ../swagger/paths/products/{productId}/get.yaml
 components:
   securitySchemes:
     bearerAuth:
